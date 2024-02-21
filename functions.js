@@ -32,3 +32,22 @@ export class Calculator {
         return a / b;
     }
 }
+
+export function analyzeArray(array) {
+    if (!Array.isArray(array) || array.length === 0) {
+        throw new Error("Input should be a non-empty array");
+    }
+
+    let sum = array.reduce((a, b) => a + b, 0);
+    let average = sum / array.length;
+    let min = Math.min(...array);
+    let max = Math.max(...array);
+    let length = array.length;
+
+    return {
+        average,
+        min,
+        max,
+        length
+    };
+}
